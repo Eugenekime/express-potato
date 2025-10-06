@@ -29,6 +29,7 @@ export const refresh = async (req, res) => {
       accessToken: newAccessToken,
       refreshToken: newRefreshToken,
     });
+    console.log(user.refreshTokens.includes(refreshToken));
   } catch (err) {
     return res.status(403).json({ message: 'Refresh token недействителен' });
   }

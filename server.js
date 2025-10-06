@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import registrationRouter from './routers/registration.router.js';
 import authLoginRouter from './routers/authLogin.router.js';
 import refreshRouter from './routers/refreshTokens.router.js';
-import logoutRouter from './routers/logout.router.js';
+import deleteAccRouter from './routers/deleteAcc.router.js';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use('/api/auth', registrationRouter);
 app.use('/api/auth', authLoginRouter);
 app.use('/api/auth', refreshRouter);
-app.use('/api/auth', logoutRouter);
+app.use('/api/auth', deleteAccRouter);
 
 mongoose
   .connect(MONGO_URI)
