@@ -12,10 +12,7 @@ export const deleteAcc = async (req, res) => {
       return res.status(404).json({ message: 'Пользователь не найден' });
     }
 
-    user.refreshTokens = user.refreshTokens.filter(
-      (token) => token !== refreshToken
-    );
-    await user.save();
+    await User.deleteOne({ _id: user._id });
 
     return res.status(200).json({ message: 'Аккаунт удалён' });
   } catch (err) {
