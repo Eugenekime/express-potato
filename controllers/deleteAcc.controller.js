@@ -2,6 +2,7 @@ import User from '../models/User.js';
 
 export const deleteAcc = async (req, res) => {
   try {
+    console.log('BODY:', req.body);
     const { refreshToken } = req.body;
     if (!refreshToken) {
       return res.status(400).json({ message: 'Нет токена' });
